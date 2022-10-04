@@ -5,17 +5,62 @@
 
 int main(int argc, char *argv[]) {
 	
-	int sum =0;
-	int i,x;
+	int x,y; //두개의 입력정수 
+	char op;//연산자문자 
+	int result;//연산결과 저장 
 	
 	
-	printf("input a number : ");
-	scanf("%d",&x);
-	
-	for (i=0;i<=x;i++){ //조건식을 i<x로 하면 마지막 값이 더해지지않아서 오류남. / i 초기값을 0으로하나 1로 하나 같음 
-		sum+=i;	}
 
-	printf("The result is %i. \n ",sum);
+	printf("enter the calculation : ");
+	scanf("%d %c %d",&x,&op,&y);
+	
+	
+	
+	switch(op)//op에 따라 케이스가 나뉨
+	
+	{
+		case '+':
+			result =x+y;
+			break;
+			
+		case '-':
+			result =x-y;
+			break;
+			
+		case '*':
+			result =x*y;
+			break;
+			
+		case '/':
+			result =x/y;
+			break;
+			
+			
+	 } 
+	
+
+	/*if (op =='+') 
+	{
+		result = x+y;
+	} 
+	
+	else if (op =='-')
+	{
+		result = x-y;
+	} 
+	
+	else if (op =='*')
+	{
+		result = x*y;
+	} 
+	
+	else if (op =='/')
+	{
+		result = x/y;
+	} 
+	*/
+	
+	printf("=%d", result);
 	return 0;
 	
 }
