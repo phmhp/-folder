@@ -5,21 +5,24 @@
 
 int main(int argc, char *argv[]) {
 	
-	int x;
+	char c;
+	int num=0;
 	
-	printf("정수 하나를 입력하시오 : ");
-	scanf("%d",&x) ;
+	printf("input a string : ");
+
+	while ((c=getchar())!='\n') //입력문자가 개행문자가 나올때까지 반복 	{ printf ("the number of digits is %i",num); 
+	{
 	
+		if (c>='0' && c <='9') //입력된 글자 ( c ) 가 숫자인가?
+		 num=num+1; //그렇다면 하나를 센다. 반복  
+	}
 	
-	if (x<0)
-		x=-1*x;
-
-
-	printf("절대값은 %i 입니다.", x); 
-
-
-	
+	printf("숫자의 개수는 %i개입니다. \n ",num);
 	return 0;
+	
 }
 
+
+//숫자면 ascii 코드 안에서 '0'~'9'에 해당될 것. 
+ 
 
