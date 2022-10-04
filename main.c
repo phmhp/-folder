@@ -5,24 +5,25 @@
 
 int main(int argc, char *argv[]) {
 	
-	char c;
-	int num=0;
+	int sum =0;
+	int i,x;
 	
-	printf("input a string : ");
+	
+	printf("input a number : ");
+	scanf("%d",&x);
+	
+	for (i=0;i<=x;i++){ //조건식을 i<x로 하면 마지막 값이 더해지지않아서 오류남. / i 초기값을 0으로하나 1로 하나 같음 
+		sum+=i;	}
 
-	while ((c=getchar())!='\n') //입력문자가 개행문자가 나올때까지 반복 	{ printf ("the number of digits is %i",num); 
-	{
-	
-		if (c>='0' && c <='9') //입력된 글자 ( c ) 가 숫자인가?
-		 num=num+1; //그렇다면 하나를 센다. 반복  
-	}
-	
-	printf("숫자의 개수는 %i개입니다. \n ",num);
+	printf("The result is %i. \n ",sum);
 	return 0;
 	
 }
 
 
-//숫자면 ascii 코드 안에서 '0'~'9'에 해당될 것. 
- 
+//for 문을 활용해서 1부터 x까지 sum에 더하는 ㅗ드
+//for ()//반복(초기식;조건식;증감식)
+    	//더하기;
+	
+//printf(""); //결과 출력) 
 
