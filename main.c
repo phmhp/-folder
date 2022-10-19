@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int all_files;
+static int all_files; //외부 파일에서 extern으로 접근 불가  
 
 extern void sub();
 
