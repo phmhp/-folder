@@ -5,12 +5,15 @@
 
 int main(int argc, char *argv[]) 
 {
-	int i;
-	for (i=0;i<5;i++)
-	{
-		int temp=1;
-		printf("temp= %d\n",temp); //temp=1 만 5번 반복 출력됨.  
-		temp++;
-	}
-	return 0;
+	int i=10;
+	printf("함수 호출전 i=%d\n",i); //i=10
+	inc(i); 
+	printf("함수 호출후 i=%d\n",i); //i=10
+	return 0; 
+}
+
+int inc(int counter)
+{
+	counter++;
+	return counter; //counter는 inc함수의 지역변수라 값이 소멸되어버림.  
 }
