@@ -18,4 +18,4 @@ int main(int argc, char *argv[]) {
 		printf("grade[%d]=%d\n",i,grade[i]);
 	}
 	return 0;
-}
+} 
