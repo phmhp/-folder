@@ -6,26 +6,22 @@
 
 void main(void) {
 	
-	FILE *fp;
+	FILE *fp=NULL;
+	char c;
 	char str[30];
+	fp =fopen("sample.txt","r");
 	
 	
-	fp =fopen("sample.txt","w");//fopen
-	
-	
-	printf("input a word: "); 
-	scanf("%s",str);//scanf //키보드로 입력받아서
-	fprintf(fp,"%s\n",str); //fprintf//출력 
-	
-	printf("input a word: "); 
-	scanf("%s",str);//scanf //키보드로 입력받아서
-	fprintf(fp,"%s\n",str); //fprintf//출력 
-	
-	printf("input a word: "); 
-	scanf("%s",str);//scanf //키보드로 입력받아서
-	fprintf(fp,"%s\n",str); //fprintf//출력 
-	
+/*	while ( (c=fgetc(fp)) != EOF) //문자변수 = fgetc(파일포인터) 
+		putchar(c);//화면출력 
+*/
+	while ( fgets(str, 30, fp) !=NULL )
+		printf("%s",str);
+	 
+	 
 	fclose(fp);
+	
+	return 0;
 	
 		}
 	
