@@ -3,11 +3,14 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int main(int argc, char *argv[]) {
-	char code1='A';
-	int code2=65;
+int main(void) {
+
+	char str[4];
+	str[0]='a';
+	str[1]='b';		
+	str[2]='c';
+	str[3]='\0'; //NULL문자까지 넣어야함. 
 	
-	printf("code1 = %c, (%d)\n",code1,code1);
-	printf("code2 = %c, (%d)\n",code2,code2); 
+	printf("%s\n",str); 
 
 }
