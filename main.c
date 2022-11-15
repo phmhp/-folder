@@ -5,23 +5,16 @@
 
 
 int main(int argc, char *argv[]) {
-	char *pc;
-	int *pi;
-	double *pd;
+	int i=100;
+	int *p =&i;
+	int **q =&p;
 	
-	pc=(char *)10000;
-	pi=(int *)10000;
-	pd =(double *)10000;
+	*p =200;
+	printf("i =%d, *p =%d, **q =%d\n",i, *p, **q);
+	//포인터 *p에 따라서 값 모두 200됨. 
+	**q =300;
+	printf("i =%d, *p =%d, **q =%d\n",i, *p, **q);
 	
-	printf("증가 전 : pc = %d, pi = %d , pd =%d\n",pc,pi,pd);
-	
-	pc++;
-	pi++;
-	pd++;
-	
-	printf("증가 후 : pc = %d, pi = %d , pd =%d\n",pc,pi,pd); 
-	//pc는 1바이트만큼 증가, pi는 4바이트만큼 증가, pd는 8바이트만큼 증가  
-	
+	//이중포인터인 **q에 따라 값이 모두 300으로 변함. 
 	return 0;
-	
 }
