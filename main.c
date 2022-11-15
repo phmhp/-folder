@@ -3,14 +3,20 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int main(int argc, char *argv[]) {
-	int i =300; 
-	
-	int *pi =&i;
-	char *pc =&i;
 
-	printf("%i, %i, %i\n",i,*pi,*pc); // pi는 int형->4바이트를 가지고 4바이트 가리킴.
-									//pc는 4바이트 가지고 1바이트 가리킴. 
-										//300은 256을 넘음. 즉, 1바이트로 표현이 안됨.   
+void swap (int *x, int *y){
+	int temp;
+	temp =*x;
+	*x=*y;
+	*y=temp;
+} 
+
+int main(int argc, char *argv[]) {
+	int a= 3;
+	int b= 5;
+	swap(&a,&b);
+	
+	printf("a:%i,b:%i\n",a,b);  
+	//call by value는 복사본이 넘어가는 형태라서 swap효과 없음.  =>포인터로 넘기면 가능. 
 	return 0;
 }
