@@ -5,23 +5,23 @@
 
 
 int main(int argc, char *argv[]) {
-	int i;
-	int grade[5];
-	int accum;
+	char *pc;
+	int *pi;
+	double *pd;
 	
-	for (i=0;i<5;i++){
-		
-		printf("grade[%i]=",i);
-		scanf("%d",&grade[i]);
-	} 
+	pc=(char *)10000;
+	pi=(int *)10000;
+	pd =(double *)10000;
 	
+	printf("증가 전 : pc = %d, pi = %d , pd =%d\n",pc,pi,pd);
 	
-	for (i=0;i<5;i++){
-		
-		printf("%i : %i\n", i, *(grade+i));
-		accum+=*(grade+i);	
-	}
-	printf("average : %i\n ", accum/5);
+	pc++;
+	pi++;
+	pd++;
+	
+	printf("증가 후 : pc = %d, pi = %d , pd =%d\n",pc,pi,pd); 
+	//pc는 1바이트만큼 증가, pi는 4바이트만큼 증가, pd는 8바이트만큼 증가  
+	
 	return 0;
 	
 }
