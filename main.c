@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 	for (i=0;i<5;i++){
 		
 		printf("%i : %i\n", i, *(grade+i));
-		accum+=grade[i];	
+		accum+=*(grade+i);	
 	}
 	printf("average : %i\n ", accum/5);
 	return 0;
