@@ -4,25 +4,13 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	int i =10;
-	char c ='a';
+	int i =300; 
 	
-	int *iptr;
-	char *cptr;
-	int *iptr2;
-	
-	iptr=&i;
-	cptr=&c;
-	
-	
-	iptr2=iptr; //iptr2는 iptr이 가리키는 곳을 동일하게 가리키도록. 
-	
-	
-	
-	
-	
-	printf("i: %p\n%p (size:%i)\n",iptr,&i,sizeof(iptr)); //%p는 %i랑 거의 같은데 16진수로 찍음. 
-	printf("c : %p\n%p (size:%i)\n",cptr,&c,sizeof(cptr));
-	printf("iptr2: %p, %i\n",iptr,*iptr2);
+	int *pi =&i;
+	char *pc =&i;
+
+	printf("%i, %i, %i\n",i,*pi,*pc); // pi는 int형->4바이트를 가지고 4바이트 가리킴.
+									//pc는 4바이트 가지고 1바이트 가리킴. 
+										//300은 256을 넘음. 즉, 1바이트로 표현이 안됨.   
 	return 0;
 }
