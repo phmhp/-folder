@@ -17,14 +17,14 @@ void bingo_init(void)
 			if (cnt ==15)
 				{
 					bingoBoard[i][j] = BINGONUM_HOLE;
-					numberStatus[cnt=1]= BINGONUM_HOLE;
+					numberStatus[cnt-1]= BINGONUM_HOLE;
 					
 					cnt++;
 				}
 		
 				else
 				{
-					numberStatus[cnt=1]= i*N_SIZE +j;
+					numberStatus[cnt-1]= i*N_SIZE +j;
 					bingoBoard[i][j]=cnt++;
 				
 				}
@@ -57,7 +57,14 @@ void bingo_printBoard(void)
 }
 
 void bingo_inputNum(int sel)
-{
+{  
+//입력받은 정수인 sel이 존재하는 bingoBoard 내에서 해당위치를 찾아 X\t으로 내용을 바꿔줘야함.
+ int i,j;
+ i= numberStatus[sel-1]/N_SIZE;
+ j= numberStatus[sel-1]%N_SIZE;
+ 
+ bingoBoard[i][j] = BINGONUM_HOLE;
+  
 	
 }
 

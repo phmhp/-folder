@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 	
 	//game
 	
-	
+	 
 	bingo_init();
 	bingo_printBoard();
 	bingo_inputNum(21);
