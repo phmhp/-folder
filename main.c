@@ -3,12 +3,38 @@
 #include <time.h>
 #include "bingoBoard.h"
 
+#define BINGO_RES_UNFINISHED 	-1
+#define BINGO_RES_FINISHED	0
+
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
+int check_gameEnd(void){ //빙고보드가 게임이 끝났는지를 판단하는 함수. 
+	int res = BINGO_RES_UNFINISHED;	
+	if (bingo_countCompletedLine() >=N_LINE ) //지정된 수 
+		res =BINGO_RES_FINISHED;
+	
+	return res;	
+}
 
-
+int get_number(void)
+{
+	int selNum=0;
+	do {
+		printf("select a number : ");
+		scanf("%d",&selNum);
+		fflush(stdin);
+		
+		if (selNum <1 || selNum > N_SIZE*N_SIZE || bingo_checkNum(selNum) == BINGO_NUMSTATUS_ABSENT)
+		{
+			printf("%i is not on the board! select other one.\n",selNum);
+		}
+		
+	}while (selNum <1 || selNum > N_SIZE*N_SIZE || bingo_checkNum(selNum) == BINGO_NUMSTATUS_ABSENT );
+	
+		return selNum; 
+ } 
 
 int main(int argc, char *argv[]) {
-	
+	int selNum;
 	srand((unsigned)(time(NULL)));	
 	
 	
@@ -31,27 +57,27 @@ int main(int argc, char *argv[]) {
 	
 	//game
 	
-	 
 	bingo_init();
-	bingo_printBoard();
-	bingo_inputNum(21);
-	bingo_printBoard();
 	//initialize bingo board
-	/*
 	
-	while (game is not end) //줄 수가 N_BINGO보다 작음 
+	
+	while (check_gameEnd () == BINGO_RES_UNFINISHED)  //줄 수가 N_BINGO보다 작은 경우 
 	{
-		//bingo board print 
+		//bingo board print			
+		bingo_print();
+		 
+		//print no. of completed line
+		printf("No. of completed line : %i\n",bingo_countCompletedLine());
 		
-		//printf no. of completed line
+	 
+	 	//select a number
+		int selNum = get_number();
 		
-		//select a number
-		
-		//update the board status 
-	
+		//update the board status
+		bingo_inputNum(selNum); 
 	}
 	
-	*/
+	
 	
 	//ending
 	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -69,6 +95,13 @@ int main(int argc, char *argv[]) {
 	printf("*****************************************************************************************************\n");
 	printf("=====================================================================================================\n");
 	
+	bingo_print();
 	
+	 
 	return 0;
 }
+
+
+
+
+
